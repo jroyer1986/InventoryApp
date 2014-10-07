@@ -1,0 +1,74 @@
+﻿@model InventoryApp.Data.Models.IngredientModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EDIT</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>IngredientModel</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Type)
+        </div>
+        <div class="editor-field">
+            <select name="Type">
+                <option value="0">Solid</option>
+                <option value="1">Liquid</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.Type)
+        </div>
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.ExpirationDate)
+        </div>
+        <div class="editor-field">
+                @Html.EditorFor(model => model.ExpirationDate)
+                @Html.ValidationMessageFor(model => model.ExpirationDate)            
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PlaceOfPurchase)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PlaceOfPurchase)
+            @Html.ValidationMessageFor(model => model.PlaceOfPurchase)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Notes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notes)
+            @Html.ValidationMessageFor(model => model.Notes)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

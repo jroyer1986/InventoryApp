@@ -1,0 +1,22 @@
+﻿@model InventoryApp.ViewModels.IndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form action="@Url.Action("Search", "Home")">
+    <input name="Name" type="text" />
+    <input name="SearchButton" type="submit" value="Search" />
+</form>
+
+<p>Total Items: @{Html.RenderAction("GetItemCount", "Home");}</p>
+<h4>@Html.ActionLink("CREATE", "Create")</h4>
+<h2>INDEX</h2>
+
+@foreach (InventoryApp.Data.Models.IngredientModel ingredient in Model.IngredientList)
+{
+    <p>
+    @Html.ActionLink(ingredient.Name, "Details", new { id = ingredient.ID }) 
+    @*@ingredient.ExpirationDate.Value.ToShortDateString()*@
+    </p>
+}

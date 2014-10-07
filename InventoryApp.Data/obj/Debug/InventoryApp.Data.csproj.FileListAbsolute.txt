@@ -1,0 +1,8 @@
+C:\Users\CodeBox\vsprojects\InventoryApp\InventoryApp.Data\obj\Debug\InventoryApp.Data.csprojResolveAssemblyReference.cache
+C:\Users\CodeBox\vsprojects\InventoryApp\InventoryApp.Data\bin\Debug\InventoryApp.Data.dll.config
+C:\Users\CodeBox\vsprojects\InventoryApp\InventoryApp.Data\bin\Debug\InventoryApp.Data.dll
+C:\Users\CodeBox\vsprojects\InventoryApp\InventoryApp.Data\bin\Debug\InventoryApp.Data.pdb
+C:\Users\CodeBox\vsprojects\InventoryApp\InventoryApp.Data\obj\Debug\InventoryApp.Data.dll
+C:\Users\CodeBox\vsprojects\InventoryApp\InventoryApp.Data\obj\Debug\InventoryApp.Data.pdb
+C:\Users\CodeBox\vsprojects\InventoryApp\InventoryApp.Data\bin\Debug\EntityFramework.dll
+C:\Users\CodeBox\vsprojects\InventoryApp\InventoryApp.Data\bin\Debug\EntityFramework.xml

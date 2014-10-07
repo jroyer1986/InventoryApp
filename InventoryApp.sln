@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryApp", "InventoryApp\InventoryApp.csproj", "{B360DAE6-501D-41E7-BB7B-BA6C8456ABC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryApp.Tests", "InventoryApp.Tests\InventoryApp.Tests.csproj", "{C3705CA4-40CB-4CB6-9552-B37087C48208}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryApp.Data", "InventoryApp.Data\InventoryApp.Data.csproj", "{D50356AC-3A42-4B39-96BD-AE23FF3D0BDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B360DAE6-501D-41E7-BB7B-BA6C8456ABC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B360DAE6-501D-41E7-BB7B-BA6C8456ABC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B360DAE6-501D-41E7-BB7B-BA6C8456ABC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B360DAE6-501D-41E7-BB7B-BA6C8456ABC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3705CA4-40CB-4CB6-9552-B37087C48208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3705CA4-40CB-4CB6-9552-B37087C48208}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3705CA4-40CB-4CB6-9552-B37087C48208}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3705CA4-40CB-4CB6-9552-B37087C48208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D50356AC-3A42-4B39-96BD-AE23FF3D0BDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D50356AC-3A42-4B39-96BD-AE23FF3D0BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D50356AC-3A42-4B39-96BD-AE23FF3D0BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D50356AC-3A42-4B39-96BD-AE23FF3D0BDB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

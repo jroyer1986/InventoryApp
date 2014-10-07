@@ -1,0 +1,88 @@
+﻿@model InventoryApp.Data.Models.IngredientModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".confirmAction").click(function (e) {
+            if (!confirm('Are you sure you want to delete this item?')) { e.preventDefault() } 
+        });
+    });
+</script>
+
+<style>
+
+</style>
+<h2>DETAILS</h2>
+
+<fieldset>
+    
+   
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <br />
+
+    <div class="display-label">
+        <b> <font style="text-transform: uppercase;"> @Html.DisplayNameFor(model => model.Type)</font></b>
+</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Type)
+    </div>
+
+    <br />
+    
+    <div class="display-label">
+        <b><font style="text-transform: uppercase;">@Html.DisplayNameFor(model => model.ExpirationDate)</font></b>
+</div>
+    <div class="display-field"> 
+        @if (Model.ExpirationDate.HasValue)
+        {        
+            @Html.Label(Model.ExpirationDate.Value.ToShortDateString())
+        }      
+        else
+        {
+            <label>No Expiration Date</label>
+        }
+    </div>
+
+    <br />
+    
+    <div class="display-label">
+        <b><font style="text-transform: uppercase;">@Html.DisplayNameFor(model => model.PlaceOfPurchase)</font></b>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PlaceOfPurchase)
+    </div>
+
+   <br />
+    
+    <div class="display-label">
+        <b><font style="text-transform: uppercase;">@Html.DisplayNameFor(model => model.Notes)</font></b>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Notes)
+    </div>
+    
+</fieldset>
+
+<fieldset>
+@if (Model.IngredientQuantities != null)
+{
+    Html.RenderPartial("ViewIngredientQuantities",Model.IngredientQuantities); 
+}
+</fieldset>
+<p>
+    @Html.ActionLink("Delete", "Delete", "Home", new { id = Model.ID }, new { @class = "confirmAction" }) |
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Add Amount", "CreateQuantity", new { ingredientID = Model.ID }) | 
+    @Html.ActionLink("Back to Index", "Index")
+  
+</p>

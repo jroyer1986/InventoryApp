@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IngredientDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="IngredientDatabaseModelStoreContainer">
+    <EntitySet Name="Ingredient" EntityType="IngredientDatabaseModel.Store.Ingredient" store:Type="Tables" store:Schema="dbo" store:Name="Ingredient">
+      <DefiningQuery>SELECT 
+      [Ingredient].[id] AS [id], 
+      [Ingredient].[name] AS [name], 
+      [Ingredient].[type] AS [type], 
+      [Ingredient].[expirationDate] AS [expirationDate], 
+      [Ingredient].[placeOfPurchase] AS [placeOfPurchase], 
+      [Ingredient].[notes] AS [notes]
+      FROM [dbo].[Ingredient] AS [Ingredient]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'IngredientDatabase.dbo.Ingredient' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Ingredient">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="type" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nchar" Nullable="false" MaxLength="100" />
+    <Property Name="type" Type="int" Nullable="false" />
+    <Property Name="expirationDate" Type="date" />
+    <Property Name="placeOfPurchase" Type="nchar" MaxLength="100" />
+    <Property Name="notes" Type="nchar" MaxLength="1000" />
+  </EntityType>
+</Schema>

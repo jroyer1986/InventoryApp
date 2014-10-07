@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InventoryDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="Ingredient">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="type" Type="int" Nullable="false" />
+    <Property Name="expirationDate" Type="date" />
+    <Property Name="placeOfPurchase" Type="nchar" MaxLength="100" />
+    <Property Name="notes" Type="nchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="IngredientQuantity">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IngredientID" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="float" Nullable="false" />
+    <Property Name="Unit" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_IngredientQuantity_Ingredient">
+    <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
+    <End Role="IngredientQuantity" Type="Self.IngredientQuantity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredient">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="IngredientQuantity">
+        <PropertyRef Name="IngredientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InventoryDatabaseModelStoreContainer">
+    <EntitySet Name="Ingredient" EntityType="Self.Ingredient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IngredientQuantity" EntityType="Self.IngredientQuantity" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_IngredientQuantity_Ingredient" Association="Self.FK_IngredientQuantity_Ingredient">
+      <End Role="Ingredient" EntitySet="Ingredient" />
+      <End Role="IngredientQuantity" EntitySet="IngredientQuantity" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
