@@ -21,19 +21,20 @@ namespace InventoryApp.Data.Models
         [DisplayName("Place of Purchase")]
         public string PlaceOfPurchase { get; set; }
         public string Notes { get; set; }
-
+        public int NumberOfTimesUsed { get; set; }
         public List<IngredientQuantityModel> IngredientQuantities { get; set; }
         #endregion
  
 
         #region Constructor
-        public IngredientModel(int id, string name, IngredientType type, DateTime? expirationDate, string placeOfPurchase, string notes) {
+        public IngredientModel(int id, string name, IngredientType type, DateTime? expirationDate, string placeOfPurchase, string notes, int numberOfTimesUsed = 0) {
             ID = id;
             Name = name;
             Type = type;
             ExpirationDate = expirationDate;
             PlaceOfPurchase = placeOfPurchase;
             Notes = notes;
+            NumberOfTimesUsed = numberOfTimesUsed;
         }
         public IngredientModel() { }
         #endregion
