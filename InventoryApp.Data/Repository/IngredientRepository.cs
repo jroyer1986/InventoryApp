@@ -36,6 +36,22 @@ namespace InventoryApp.Data.Repository
             return ingredientsForController;
         }
 
+        public IngredientQuantityModel GetIngredientQuantity(int id)
+        {
+            IngredientQuantity quantity = _inventoryEntities.IngredientQuantities.FirstOrDefault(i => i.ID == id);
+
+            if (quantity != null)
+            {
+                IngredientQuantityModel quantityModel = new IngredientQuantityModel(quantity.ID, quantity.IngredientID, quantity.Amount, quantity.Unit);
+
+                return quantityModel;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public IngredientModel GetIngredients(int id)
         {
             //get ingredient from the database
@@ -141,18 +157,35 @@ namespace InventoryApp.Data.Repository
             Ingredient deletedIngredient = _inventoryEntities.Ingredients.FirstOrDefault(i => i.id == id);           
             if (deletedIngredient != null)
             {
-                DeleteQuantity(id);
+                DeleteAllQuantity(id);
                 _inventoryEntities.Ingredients.Remove(deletedIngredient);                
                 _inventoryEntities.SaveChanges();
             }
         }
 
-        public void DeleteQuantity(int id)
+        public void DeleteAllQuantity(int id)
         {
-            IngredientQuantity deletedIngredientQuantity = _inventoryEntities.IngredientQuantities.FirstOrDefault(q => q.IngredientID == id);
-            if (deletedIngredientQuantity != null)
+            var deletedIngredientQuantities = _inventoryEntities.IngredientQuantities
+                                                                 .Where(q => q.IngredientID == id)
+                                                                 .AsEnumerable();
+
+            if (deletedIngredientQuantities != null)
             {
-                _inventoryEntities.IngredientQuantities.Remove(deletedIngredientQuantity);
+                foreach (var deletedIngredientQuantity in deletedIngredientQuantities)
+                {
+                    _inventoryEntities.IngredientQuantities.Remove(deletedIngredientQuantity);
+                }
+                    _inventoryEntities.SaveChanges();
+                
+            }
+        }
+
+        public void DeleteOneQuantity(int id)
+        {
+            IngredientQuantity deletedQuantity = _inventoryEntities.IngredientQuantities.FirstOrDefault(i => i.ID == id);
+            if (deletedQuantity != null)
+            {
+                _inventoryEntities.IngredientQuantities.Remove(deletedQuantity);
                 _inventoryEntities.SaveChanges();
             }
         }

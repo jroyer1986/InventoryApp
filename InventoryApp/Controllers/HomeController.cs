@@ -87,6 +87,13 @@ namespace InventoryApp.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult DeleteOneQuantity(int id)
+        {
+            var itemToDelete= _ingredientRepository.GetIngredientQuantity(id);
+            _ingredientRepository.DeleteOneQuantity(id);
+            return RedirectToAction("Details", new { id = itemToDelete.IngredientID});
+        }
+
         [HttpGet]
         public ActionResult CreateQuantity(int ingredientID)
         {
