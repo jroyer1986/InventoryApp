@@ -27,7 +27,9 @@
             @Html.DisplayFor(modelItem => item.Unit)
         </td>
         <td>
-            @Html.ActionLink("Delete", "DeleteOneQuantity", "Home", new { id = item.ID }, new { @class = "confirmAction2" })           
+            @Html.ActionLink("Delete", "DeleteOneQuantity", "Home", new { id = item.ID }, new { @class = "confirmAction2" })   
+            @*removed edit link*@
+
         </td>
     </tr>
 }
